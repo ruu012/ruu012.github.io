@@ -1,288 +1,215 @@
 <!doctype html>
 <html lang="zh-Hant">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>壽司郎 × BMW｜壽司車聯名系列</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>海底撈樂園 | Tokyo Disneyland</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="回到壽司郎 BMW 聯名首頁">
-        <span class="sushiro-logo">スシロー</span>
-        <span class="brand-cross">×</span>
-        <span class="bmw-logo" aria-hidden="true">
-          <span>BMW</span>
-        </span>
-      </a>
+    <main class="site-shell" aria-label="海底撈樂園互動網站">
+      <header class="resort-header" aria-label="東京迪士尼度假區導覽">
+        <a class="resort-brand" href="#home" data-panel="home">TOKYO DISNEY RESORT</a>
+        <nav class="resort-links" aria-label="快速連結">
+          <button type="button" data-panel="news">我的最愛</button>
+          <button type="button" data-panel="services">Language</button>
+          <button type="button" data-ticket>線上預約＆購票</button>
+        </nav>
+      </header>
 
-      <button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" data-menu-toggle>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="poster-scroll">
+        <section class="poster-stage" aria-label="海底撈樂園首頁">
+          <img src="assets/haidilao-disneyland.png" alt="海底撈樂園首頁，包含旋轉鍋底、甩麵師父鬼屋、變臉師父鬼屋與巡遊活動">
 
-      <nav class="main-nav" aria-label="主要導覽" data-nav-menu>
-        <a href="#intro">聯名介紹</a>
-        <a href="#collection">壽司車款</a>
-        <a href="#products">限量周邊</a>
-        <a href="#rules">活動辦法</a>
-        <a href="#stores">門市資訊</a>
-      </nav>
+          <a class="hotspot logo-link" href="#home" data-panel="home" aria-label="回到海底撈樂園首頁"></a>
+          <a class="hotspot nav-attractions" href="#attractions" data-panel="attractions" aria-label="遊樂設施"></a>
+          <a class="hotspot nav-entertainment" href="#entertainment" data-panel="entertainment" aria-label="娛樂表演"></a>
+          <a class="hotspot nav-dining" href="#dining" data-panel="dining" aria-label="餐飲"></a>
+          <a class="hotspot nav-shopping" href="#shopping" data-panel="shopping" aria-label="商店"></a>
+          <a class="hotspot nav-tickets" href="#tickets" data-panel="tickets" aria-label="票券資訊"></a>
+          <a class="hotspot nav-hours" href="#hours" data-panel="hours" aria-label="營運時間表"></a>
+          <button class="hotspot buy-tickets" type="button" data-ticket aria-label="線上購票"></button>
 
-      <button class="reserve-button" type="button" data-open-modal="booking">立即訂位</button>
-    </header>
+          <a class="hotspot card-hotspot rotating-cups" href="#rotating-cups" data-panel="rotating-cups" aria-label="旋轉鍋底"></a>
+          <a class="hotspot card-hotspot noodle-house" href="#noodle-house" data-panel="noodle-house" aria-label="甩麵師父鬼屋"></a>
+          <a class="hotspot card-hotspot face-house" href="#face-house" data-panel="face-house" aria-label="變臉師父鬼屋"></a>
+          <a class="hotspot card-hotspot parade" href="#parade" data-panel="parade" aria-label="海底撈花車遊行"></a>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">壽司郎 × BMW</p>
-          <h1 id="hero-title">壽司車聯名系列</h1>
-          <p class="hero-kicker">回轉壽司・極致駕馭</p>
-          <p class="hero-text">
-            壽司在轉，樂趣不斷；駕馭在手，快感無限。享受壽司，享受駕馭，享受生活每一刻！
-          </p>
-          <div class="hero-actions">
-            <a class="primary-cta" href="#collection">
-              探索聯名系列
-              <span aria-hidden="true">›</span>
-            </a>
-            <button class="ghost-cta" type="button" data-open-modal="gallery">查看原始視覺</button>
-          </div>
+          <a class="hotspot footer-news" href="#news" data-panel="news" aria-label="最新消息"></a>
+          <a class="hotspot footer-attractions" href="#attractions" data-panel="attractions" aria-label="遊樂設施"></a>
+          <a class="hotspot footer-entertainment" href="#entertainment" data-panel="entertainment" aria-label="娛樂表演"></a>
+          <a class="hotspot footer-dining" href="#dining" data-panel="dining" aria-label="餐飲"></a>
+          <a class="hotspot footer-shopping" href="#shopping" data-panel="shopping" aria-label="商店"></a>
+          <a class="hotspot footer-services" href="#services" data-panel="services" aria-label="服務設施"></a>
+          <a class="hotspot footer-premier" href="#premier-access" data-panel="premier-access" aria-label="迪士尼尊享卡"></a>
+        </section>
+      </div>
+
+      <section class="park-status section-panel" aria-label="本日園區資訊">
+        <div class="welcome-copy">
+          <p class="section-kicker">Welcome to Tokyo Disneyland</p>
+          <h1>歡迎來到海底撈樂園！</h1>
+          <p>先看今日狀態，再安排設施、表演、餐飲與購票。</p>
         </div>
-
-        <div class="hero-art" aria-label="壽司造型 BMW 車款主視覺">
-          <img src="assets/hero-cars.jpg" alt="鮭魚、鮪魚、花枝與玉子燒壽司造型 BMW 車款在迴轉台上" />
-        </div>
-      </section>
-
-      <section class="model-rail" id="collection" aria-labelledby="collection-title">
-        <div class="rail-heading">
-          <div>
-            <p class="section-label">Series</p>
-            <h2 id="collection-title">壽司車款介紹</h2>
-          </div>
-          <button class="text-link" type="button" data-show-all>查看全部車款 <span aria-hidden="true">›</span></button>
-        </div>
-
-        <div class="model-grid" role="tablist" aria-label="壽司車款">
-          <button class="model-card is-active" type="button" role="tab" aria-selected="true" data-model="salmon">
-            <span class="model-name">鮭魚壽司車</span>
-            <strong>THE 3</strong>
-            <img src="assets/card-salmon.jpg" alt="鮭魚壽司車 THE 3" />
-          </button>
-          <button class="model-card" type="button" role="tab" aria-selected="false" data-model="tuna">
-            <span class="model-name">鮪魚壽司車</span>
-            <strong>THE 5</strong>
-            <img src="assets/card-tuna.jpg" alt="鮪魚壽司車 THE 5" />
-          </button>
-          <button class="model-card" type="button" role="tab" aria-selected="false" data-model="flounder">
-            <span class="model-name">花枝壽司車</span>
-            <strong>X5</strong>
-            <img src="assets/card-flounder.jpg" alt="花枝壽司車 X5" />
-          </button>
-          <button class="model-card" type="button" role="tab" aria-selected="false" data-model="tamago">
-            <span class="model-name">玉子燒壽司車</span>
-            <strong>X7</strong>
-            <img src="assets/card-tamago.jpg" alt="玉子燒壽司車 X7" />
-          </button>
-        </div>
-      </section>
-
-      <section class="detail-panel" aria-live="polite">
-        <div class="detail-image">
-          <img id="detail-image" src="assets/card-salmon.jpg" alt="鮭魚壽司車 THE 3" />
-        </div>
-        <div class="detail-copy">
-          <p class="section-label" id="detail-category">Sushi Drive 01</p>
-          <h2 id="detail-title">鮭魚壽司車 THE 3</h2>
-          <p id="detail-description">
-            以鮭魚的油脂光澤搭配 THE 3 的俐落車身比例，主打靈活入彎與日常通勤的俐落節奏。
-          </p>
-          <dl class="spec-list">
-            <div>
-              <dt>風味</dt>
-              <dd id="detail-flavor">濃郁鮭魚</dd>
-            </div>
-            <div>
-              <dt>駕馭感</dt>
-              <dd id="detail-drive">輕快精準</dd>
-            </div>
-            <div>
-              <dt>推薦場景</dt>
-              <dd id="detail-scene">城市午餐</dd>
-            </div>
-          </dl>
-          <div class="detail-actions">
-            <button class="dark-button" type="button" data-add-drive>加入試乘清單</button>
-            <a class="outline-button" href="#stores">查看活動門市</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="quick-perks" aria-label="活動亮點">
-        <button type="button" data-perk="期間限定">
-          <span class="line-icon">◎</span>
-          <strong>期間限定</strong>
-          <span>限量販售中</span>
-        </button>
-        <button type="button" data-perk="聯名周邊">
-          <span class="line-icon">✺</span>
-          <strong>聯名周邊</strong>
-          <span>獨家設計商品</span>
-        </button>
-        <button type="button" data-perk="集點活動">
-          <span class="line-icon">✤</span>
-          <strong>集點活動</strong>
-          <span>集點換好禮</span>
-        </button>
-        <button type="button" data-perk="試乘體驗">
-          <span class="line-icon">▣</span>
-          <strong>試乘體驗</strong>
-          <span>BMW 試乘享優惠</span>
-        </button>
-      </section>
-
-      <section class="content-band" id="intro" aria-labelledby="intro-title">
-        <div class="section-copy">
-          <p class="section-label">Collaboration</p>
-          <h2 id="intro-title">把餐桌上的期待，開上迴轉車道</h2>
-          <p>
-            這次聯名把壽司郎的迴轉壽司語彙，轉化成 BMW 車款的趣味設定。每款壽司車都有自己的口味、車格與活動任務，從餐點、周邊到試乘體驗都能一路點下去。
-          </p>
-        </div>
-        <div class="intro-actions">
-          <button type="button" data-open-modal="booking">預約用餐</button>
-          <a href="#rules">活動辦法</a>
-        </div>
-      </section>
-
-      <section class="product-section" id="products" aria-labelledby="products-title">
-        <div class="section-heading">
-          <p class="section-label">Limited Goods</p>
-          <h2 id="products-title">限量周邊</h2>
-        </div>
-        <div class="product-grid">
-          <article class="product-card">
-            <span>01</span>
-            <h3>壽司車迷你模型</h3>
-            <p>四款車色可收集，單筆消費滿額即可加購。</p>
-            <button type="button" data-product="壽司車迷你模型">加入收藏</button>
+        <div class="status-grid">
+          <article class="status-card">
+            <span>本日開園時間</span>
+            <strong>9:00 - 21:00</strong>
           </article>
-          <article class="product-card">
-            <span>02</span>
-            <h3>聯名車票貼紙組</h3>
-            <p>以迴轉盤、車標與壽司紋樣設計，適合貼在筆電或行李箱。</p>
-            <button type="button" data-product="聯名車票貼紙組">加入收藏</button>
-          </article>
-          <article class="product-card">
-            <span>03</span>
-            <h3>方向盤造型餐墊</h3>
-            <p>防水材質搭配黑紅金配色，把餐桌變成發車區。</p>
-            <button type="button" data-product="方向盤造型餐墊">加入收藏</button>
+          <article class="status-card">
+            <span>票券銷售狀況</span>
+            <strong>銷售中</strong>
           </article>
         </div>
+        <div class="status-actions">
+          <button type="button" class="secondary-action" data-panel="hours">本日園區</button>
+          <button type="button" class="primary-action" data-ticket>搜尋票券</button>
+        </div>
       </section>
 
-      <section class="rules-section" id="rules" aria-labelledby="rules-title">
+      <section class="content-section" id="news" aria-labelledby="focusTitle">
         <div class="section-heading">
-          <p class="section-label">Event</p>
-          <h2 id="rules-title">活動辦法</h2>
+          <p class="section-kicker">Featured</p>
+          <h2 id="focusTitle">精選焦點</h2>
         </div>
-        <div class="rule-tabs" role="tablist" aria-label="活動辦法分頁">
-          <button class="is-active" type="button" role="tab" aria-selected="true" data-rule-tab="period">活動期間</button>
-          <button type="button" role="tab" aria-selected="false" data-rule-tab="points">集點兌換</button>
-          <button type="button" role="tab" aria-selected="false" data-rule-tab="drive">試乘優惠</button>
-        </div>
-        <div class="rule-panel" id="rule-panel">
-          <h3>2026.05.07 - 2026.06.30</h3>
-          <p>活動期間內於指定門市消費聯名餐點，即可參與壽司車集點任務。數量有限，贈完為止。</p>
+        <div class="feature-grid">
+          <button type="button" class="feature-card large" data-panel="news">
+            <span>活動快訊</span>
+            <strong>海底撈花車遊行本日登場</strong>
+            <em>16:30 城堡前廣場出發</em>
+          </button>
+          <button type="button" class="feature-card" data-panel="shopping">
+            <span>獨家商品</span>
+            <strong>Hi 徽章與城堡湯勺</strong>
+            <em>園區商店限定</em>
+          </button>
+          <button type="button" class="feature-card" data-panel="dining">
+            <span>菜單</span>
+            <strong>鍋底點心與冰粉飲品</strong>
+            <em>支援行動點餐</em>
+          </button>
+          <button type="button" class="feature-card" data-panel="hours">
+            <span>園區資訊</span>
+            <strong>今日表演與道路提醒</strong>
+            <em>出發前先確認</em>
+          </button>
         </div>
       </section>
 
-      <section class="stores-section" id="stores" aria-labelledby="stores-title">
+      <section class="content-section guide-section" aria-labelledby="guideTitle">
         <div class="section-heading">
-          <p class="section-label">Stores</p>
-          <h2 id="stores-title">門市資訊</h2>
+          <p class="section-kicker">Before Your Visit</p>
+          <h2 id="guideTitle">遊園準備小幫手！</h2>
+          <p>入園前先把常用服務整理好，當天玩起來更輕鬆。</p>
         </div>
-        <div class="city-filter" aria-label="選擇城市">
-          <button class="is-active" type="button" data-city="taipei">台北</button>
-          <button type="button" data-city="taichung">台中</button>
-          <button type="button" data-city="kaohsiung">高雄</button>
+        <div class="guide-grid">
+          <button type="button" data-panel="app">官方 App</button>
+          <button type="button" data-panel="priority-pass">優先入場卡</button>
+          <button type="button" data-panel="premier-access">迪士尼尊享卡</button>
+          <button type="button" data-panel="standby-pass">預約等候卡</button>
+          <button type="button" data-panel="entry-request">報名體驗</button>
+          <button type="button" data-panel="mobile-order">行動點餐</button>
+          <button type="button" data-panel="restaurant-booking">申請優先帶位</button>
+          <button type="button" data-panel="show-restaurant">預約餐飲秀</button>
+          <button type="button" data-panel="shopping">線上購物</button>
+          <button type="button" data-panel="hotel">飯店住宿</button>
         </div>
-        <div class="store-list" id="store-list"></div>
       </section>
 
-      <section class="gift-banner" aria-label="來店消費滿額贈">
+      <section class="content-section way-section" aria-labelledby="wayTitle">
+        <div class="section-heading">
+          <p class="section-kicker">Ways to Enjoy</p>
+          <h2 id="wayTitle">豐富多樣的遊園方式</h2>
+        </div>
+        <div class="way-grid">
+          <button type="button" class="way-card" data-panel="plan-attractions">
+            <strong>開心體驗海底撈樂園的遊樂設施</strong>
+            <span>從旋轉鍋底開始，再進入兩座師父鬼屋，最後到城堡前看巡遊。</span>
+          </button>
+          <button type="button" class="way-card" data-panel="plan-app">
+            <strong>利用 App，遊園更暢快！</strong>
+            <span>查詢等候時間、預約用餐、設定花車提醒，讓行程更順。</span>
+          </button>
+        </div>
+        <div class="category-links" aria-label="園區分類">
+          <button type="button" data-panel="attractions">遊樂設施</button>
+          <button type="button" data-panel="entertainment">娛樂表演</button>
+          <button type="button" data-panel="dining">園區餐飲</button>
+          <button type="button" data-panel="shopping">獨家商品</button>
+          <button type="button" data-panel="services">園區服務</button>
+        </div>
+      </section>
+
+      <section class="vacation-band" aria-label="假期套票">
         <div>
-          <p class="section-label">Gift</p>
-          <h2>來店消費滿額贈</h2>
-          <p>壽司車造型磁吸盤乙個，指定門市單筆消費滿額即可兌換。</p>
-          <button type="button" data-open-modal="gift">了解更多</button>
+          <p class="section-kicker">Vacation Packages</p>
+          <h2>每個行程皆為您呈獻最難忘的度假時光</h2>
+          <p>園區票券、飯店住宿與指定體驗可以一起安排，適合想把拍照、用餐和熱門設施排好的旅客。</p>
         </div>
-        <img src="assets/gift-car.jpg" alt="鮭魚壽司車造型磁吸盤" />
+        <button type="button" class="primary-action" data-panel="vacation-package">假期套票詳情</button>
       </section>
+
+      <footer class="site-footer">
+        <span>參考資訊架構：東京迪士尼樂園官方繁體中文首頁</span>
+        <a href="https://www.tokyodisneyresort.jp/tc/tdl.html" target="_blank" rel="noreferrer">查看參考頁</a>
+      </footer>
     </main>
 
-    <footer class="site-footer">
-      <p>壽司郎 × BMW 聯名概念頁</p>
-      <button type="button" data-open-modal="booking">立即訂位</button>
-    </footer>
+    <aside class="info-panel" id="infoPanel" aria-live="polite" aria-hidden="true">
+      <div class="panel-card" role="dialog" aria-modal="false" aria-labelledby="panelTitle">
+        <button class="icon-button panel-close" type="button" aria-label="關閉">×</button>
+        <p class="panel-kicker" id="panelKicker"></p>
+        <h1 id="panelTitle"></h1>
+        <p id="panelBody"></p>
+        <div class="panel-meta" id="panelMeta"></div>
+        <div class="panel-actions">
+          <button class="primary-action" type="button" id="panelPrimary"></button>
+          <button class="secondary-action" type="button" id="panelSecondary"></button>
+        </div>
+        <p class="panel-status" id="panelStatus" aria-live="polite"></p>
+      </div>
+    </aside>
 
-    <dialog class="modal" id="booking-modal" aria-labelledby="booking-title">
-      <form method="dialog" class="modal-card" data-booking-form>
-        <button class="modal-close" type="button" aria-label="關閉" data-close-modal>×</button>
-        <p class="section-label">Reservation</p>
-        <h2 id="booking-title">立即訂位</h2>
-        <label>
-          姓名
-          <input name="name" autocomplete="name" required />
+    <div class="ticket-modal" id="ticketModal" aria-hidden="true">
+      <form class="ticket-card" aria-labelledby="ticketTitle">
+        <button class="icon-button ticket-close" type="button" aria-label="關閉">×</button>
+        <p class="panel-kicker">Buy Tickets</p>
+        <h2 id="ticketTitle">線上購票</h2>
+        <label class="field">
+          <span>入園日期</span>
+          <input type="date" id="visitDate">
         </label>
-        <label>
-          人數
-          <select name="party" required>
-            <option value="2">2 位</option>
-            <option value="3">3 位</option>
-            <option value="4">4 位</option>
-            <option value="5">5 位以上</option>
-          </select>
-        </label>
-        <label>
-          日期
-          <input name="date" type="date" required />
-        </label>
-        <label>
-          門市
-          <select name="store" required>
-            <option>台北信義聯名店</option>
-            <option>台中旗艦聯名店</option>
-            <option>高雄夢時代聯名店</option>
-          </select>
-        </label>
-        <button class="dark-button full" type="submit">送出訂位</button>
+        <div class="ticket-row">
+          <div>
+            <strong>一日護照</strong>
+            <span>成人 18 歲以上</span>
+          </div>
+          <div class="stepper" data-stepper="adult">
+            <button type="button" data-change="-1" aria-label="減少成人票">−</button>
+            <output id="adultCount">2</output>
+            <button type="button" data-change="1" aria-label="增加成人票">+</button>
+          </div>
+        </div>
+        <div class="ticket-row">
+          <div>
+            <strong>兒童護照</strong>
+            <span>4 至 17 歲</span>
+          </div>
+          <div class="stepper" data-stepper="child">
+            <button type="button" data-change="-1" aria-label="減少兒童票">−</button>
+            <output id="childCount">1</output>
+            <button type="button" data-change="1" aria-label="增加兒童票">+</button>
+          </div>
+        </div>
+        <div class="ticket-total">
+          <span>小計</span>
+          <strong id="ticketTotal">NT$7,200</strong>
+        </div>
+        <button class="primary-action full-width" type="submit">完成選購</button>
+        <p class="panel-status" id="ticketStatus" aria-live="polite"></p>
       </form>
-    </dialog>
+    </div>
 
-    <dialog class="modal" id="gallery-modal" aria-labelledby="gallery-title">
-      <div class="modal-card gallery-card">
-        <button class="modal-close" type="button" aria-label="關閉" data-close-modal>×</button>
-        <p class="section-label">Original Visual</p>
-        <h2 id="gallery-title">原始視覺</h2>
-        <img src="assets/sushi-bmw-reference.jpg" alt="壽司郎 BMW 聯名原始設計圖" />
-      </div>
-    </dialog>
-
-    <dialog class="modal" id="gift-modal" aria-labelledby="gift-title">
-      <div class="modal-card">
-        <button class="modal-close" type="button" aria-label="關閉" data-close-modal>×</button>
-        <p class="section-label">Gift</p>
-        <h2 id="gift-title">滿額贈兌換方式</h2>
-        <p>活動期間於指定門市單筆消費滿 NT$888，即可兌換壽司車造型磁吸盤乙個。每筆消費限兌換一次，款式隨機。</p>
-        <button class="dark-button full" type="button" data-close-modal>知道了</button>
-      </div>
-    </dialog>
-
-    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <script src="script.js"></script>
   </body>
 </html>

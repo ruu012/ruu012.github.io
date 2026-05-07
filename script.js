@@ -1,275 +1,368 @@
-const models = {
-  salmon: {
-    category: "Sushi Drive 01",
-    title: "鮭魚壽司車 THE 3",
-    description: "以鮭魚的油脂光澤搭配 THE 3 的俐落車身比例，主打靈活入彎與日常通勤的俐落節奏。",
-    flavor: "濃郁鮭魚",
-    drive: "輕快精準",
-    scene: "城市午餐",
-    image: "assets/card-salmon.jpg",
-    alt: "鮭魚壽司車 THE 3"
+const panels = {
+  home: {
+    kicker: "Tokyo Disneyland",
+    title: "歡迎來到海底撈樂園",
+    body: "把城堡、旋轉杯、甩麵秀和火鍋香氣放進同一天。城堡前的歡笑、鍋底光影與花車音樂，從入口開始一路展開。",
+    meta: ["今日開園 09:00", "適合全家", "可購買一日票"],
+    primary: "購買門票",
+    secondary: "查看營運時間",
+    primaryAction: "tickets",
+    secondaryPanel: "hours"
   },
-  tuna: {
-    category: "Sushi Drive 02",
-    title: "鮪魚壽司車 THE 5",
-    description: "鮪魚紅身像是運動化塗裝，搭配 THE 5 的穩定底盤，適合從晚餐聚會一路開到夜色裡。",
-    flavor: "厚切鮪魚",
-    drive: "沉穩有力",
-    scene: "週末聚餐",
-    image: "assets/card-tuna.jpg",
-    alt: "鮪魚壽司車 THE 5"
+  attractions: {
+    kicker: "Attractions",
+    title: "遊樂設施",
+    body: "從鍋底旋轉杯到兩座師父鬼屋，今天的主打設施都集中在城堡廣場周圍，適合先玩刺激、再看巡遊。",
+    meta: ["3 項主打設施", "平均等候 20 分鐘", "身高限制依設施而定"],
+    primary: "查看推薦路線",
+    secondary: "加入今日行程"
   },
-  flounder: {
-    category: "Sushi Drive 03",
-    title: "花枝壽司車 X5",
-    description: "花枝白身帶出 X5 的俐落輪廓，口感清爽，設定上適合家庭出遊與長程移動。",
-    flavor: "清甜花枝",
-    drive: "舒適開闊",
-    scene: "家庭出遊",
-    image: "assets/card-flounder.jpg",
-    alt: "花枝壽司車 X5"
+  entertainment: {
+    kicker: "Entertainment",
+    title: "娛樂表演",
+    body: "甩麵師父會在主舞台定時開秀，夜間還有鍋氣燈光秀和角色見面會。",
+    meta: ["甩麵秀 11:30", "角色見面 14:00", "夜間秀 19:40"],
+    primary: "提醒我看表演",
+    secondary: "加入今日行程"
   },
-  tamago: {
-    category: "Sushi Drive 04",
-    title: "玉子燒壽司車 X7",
-    description: "玉子燒的柔和金黃色搭配 X7 的大器車格，主打滿載歡聚、一路都很有派頭。",
-    flavor: "香甜玉子",
-    drive: "大器豪華",
-    scene: "多人慶祝",
-    image: "assets/card-tamago.jpg",
-    alt: "玉子燒壽司車 X7"
+  dining: {
+    kicker: "Dining",
+    title: "餐飲",
+    body: "園區餐飲以鍋底、點心和冰粉為主，支援線上候位與多人桌預約。",
+    meta: ["線上候位", "素食選項", "兒童餐具"],
+    primary: "預約用餐",
+    secondary: "查看菜單"
+  },
+  shopping: {
+    kicker: "Shopping",
+    title: "商店",
+    body: "可以帶走城堡造型湯勺、Hi 徽章、角色圍裙和限定鍋底禮盒。",
+    meta: ["限定商品", "退稅櫃台", "宅配服務"],
+    primary: "查看新品",
+    secondary: "收藏商店"
+  },
+  tickets: {
+    kicker: "Tickets",
+    title: "票券資訊",
+    body: "線上一日票可先選日期與人數，再把門票加入購物籃。",
+    meta: ["成人 NT$3,000", "兒童 NT$1,200", "可改期一次"],
+    primary: "線上購票",
+    secondary: "票券說明",
+    primaryAction: "tickets"
+  },
+  hours: {
+    kicker: "Park Hours",
+    title: "營運時間表",
+    body: "今日營運時間為 09:00 至 21:00。花車遊行和夜間表演可能依天候調整。",
+    meta: ["開園 09:00", "巡遊 16:30", "閉園 21:00"],
+    primary: "同步到行事曆",
+    secondary: "查看今日活動"
+  },
+  "rotating-cups": {
+    kicker: "Hot Pot Rotating Cups",
+    title: "旋轉鍋底",
+    body: "坐進閃亮湯鍋造型旋轉杯，轉盤會隨著音樂加速，鍋底光影會在杯身裡流動。",
+    meta: ["等候 15 分鐘", "每輪 3 分鐘", "親子友善"],
+    primary: "加入排隊",
+    secondary: "收藏設施"
+  },
+  "noodle-house": {
+    kicker: "Noodle Master's Haunted House",
+    title: "甩麵師父鬼屋",
+    body: "穿過會飄出香氣的街巷，看師父用長麵條把淘氣幽靈甩回鍋邊。",
+    meta: ["等候 25 分鐘", "輕微驚嚇", "室內設施"],
+    primary: "預約入場",
+    secondary: "查看故事"
+  },
+  "face-house": {
+    kicker: "Face-Changing Master's Haunted House",
+    title: "變臉師父鬼屋",
+    body: "燈籠一亮，師父瞬間變臉。這座互動鬼屋會依隊伍掌聲改變演出節奏。",
+    meta: ["等候 30 分鐘", "沉浸演出", "建議 7 歲以上"],
+    primary: "預約入場",
+    secondary: "查看故事"
+  },
+  parade: {
+    kicker: "Haidilao Parade",
+    title: "海底撈花車遊行",
+    body: "熊貓廚師、鍋底花車和泡泡彩球會從城堡前廣場一路巡遊到主街。",
+    meta: ["16:30 開始", "城堡前最佳視角", "約 18 分鐘"],
+    primary: "設定提醒",
+    secondary: "查看路線"
+  },
+  news: {
+    kicker: "News",
+    title: "最新消息",
+    body: "本週限定開放鍋底巡遊拍照區，購票入園即可領取紀念貼紙。",
+    meta: ["期間限定", "每日限量", "入口廣場領取"],
+    primary: "查看活動",
+    secondary: "分享消息"
+  },
+  services: {
+    kicker: "Services",
+    title: "服務設施",
+    body: "園區提供置物櫃、親子休息室、失物招領、輪椅租借與餐飲候位協助。",
+    meta: ["服務中心", "親子友善", "多語支援"],
+    primary: "查看地圖",
+    secondary: "聯絡服務台"
+  },
+  "premier-access": {
+    kicker: "Disney Premier Access",
+    title: "迪士尼尊享卡",
+    body: "可為熱門設施與巡遊保留指定時段，讓今天的路線更順。",
+    meta: ["指定時段", "熱門設施", "數量有限"],
+    primary: "查看方案",
+    secondary: "加入比較"
+  },
+  app: {
+    kicker: "Tokyo Disney Resort App",
+    title: "官方 App",
+    body: "把設施等候時間、行程提醒、餐飲候位與園區地圖集中管理，入園前先把常用服務整理好。",
+    meta: ["等候時間", "園區地圖", "提醒通知"],
+    primary: "開啟服務",
+    secondary: "加入準備清單"
+  },
+  "priority-pass": {
+    kicker: "Priority Pass",
+    title: "優先入場卡",
+    body: "可為部分熱門設施安排較順的入場時段，適合想先玩主打設施的遊客。",
+    meta: ["指定設施", "入園後使用", "數量有限"],
+    primary: "查看可用設施",
+    secondary: "加入準備清單"
+  },
+  "standby-pass": {
+    kicker: "Standby Pass",
+    title: "預約等候卡",
+    body: "餐飲、商品與限定體驗可能需要預約等候卡，建議入園後先確認可領取項目。",
+    meta: ["入園後領取", "限定項目", "依現場狀況開放"],
+    primary: "查看今日名單",
+    secondary: "加入準備清單"
+  },
+  "entry-request": {
+    kicker: "Entry Request",
+    title: "報名體驗",
+    body: "部分表演與角色互動採報名制。送出後可在行程中查看結果與入場時間。",
+    meta: ["表演體驗", "角色互動", "抽選制"],
+    primary: "報名體驗",
+    secondary: "查看表演"
+  },
+  "mobile-order": {
+    kicker: "Mobile Order",
+    title: "行動點餐",
+    body: "先選餐廳、時段與餐點，到現場再領餐，適合避開尖峰排隊。",
+    meta: ["指定時段", "線上付款", "現場取餐"],
+    primary: "開始點餐",
+    secondary: "查看餐廳"
+  },
+  "restaurant-booking": {
+    kicker: "Priority Seating",
+    title: "申請優先帶位",
+    body: "熱門餐廳可預先申請帶位時段，讓遊玩和用餐之間不用硬擠。",
+    meta: ["多人同行", "熱門餐廳", "入席提醒"],
+    primary: "預約用餐",
+    secondary: "查看餐飲"
+  },
+  "show-restaurant": {
+    kicker: "Show Restaurant",
+    title: "預約餐飲秀",
+    body: "邊吃鍋底點心邊看甩麵師父登台，適合把晚餐和表演排在一起。",
+    meta: ["表演餐廳", "晚間時段", "需預約"],
+    primary: "預約餐飲秀",
+    secondary: "收藏"
+  },
+  hotel: {
+    kicker: "Disney Hotel",
+    title: "飯店住宿",
+    body: "把樂園票券與周邊住宿一起安排，隔天還能用更輕鬆的節奏進園。",
+    meta: ["親子房型", "接駁服務", "套票搭配"],
+    primary: "查看住宿",
+    secondary: "加入比較"
+  },
+  "plan-attractions": {
+    kicker: "Ways to Enjoy",
+    title: "遊樂設施推薦路線",
+    body: "建議先玩旋轉鍋底暖身，再預約兩座師父鬼屋，下午留給花車遊行與拍照。",
+    meta: ["約 5 小時", "親子路線", "含巡遊"],
+    primary: "套用路線",
+    secondary: "查看設施"
+  },
+  "plan-app": {
+    kicker: "Ways to Enjoy",
+    title: "App 輔助遊園",
+    body: "用 App 查等候、安排點餐、設定巡遊提醒，把等待時間留給拍照和吃點心。",
+    meta: ["等候查詢", "行動點餐", "提醒通知"],
+    primary: "加入準備清單",
+    secondary: "查看 App"
+  },
+  "vacation-package": {
+    kicker: "Vacation Packages",
+    title: "假期套票",
+    body: "把一日票、飯店住宿、指定設施與餐飲秀整合成一趟完整行程，適合第一次來玩的旅客。",
+    meta: ["票券加住宿", "指定體驗", "餐飲安排"],
+    primary: "查看套票",
+    secondary: "加入比較"
   }
 };
 
-const rules = {
-  period: {
-    title: "2026.05.07 - 2026.06.30",
-    body: "活動期間內於指定門市消費聯名餐點，即可參與壽司車集點任務。數量有限，贈完為止。"
-  },
-  points: {
-    title: "消費集點，兌換聯名周邊",
-    body: "單筆消費每滿 NT$300 可獲得 1 點，集滿指定點數即可兌換模型、貼紙組或餐墊。"
-  },
-  drive: {
-    title: "BMW 試乘預約優惠",
-    body: "於活動頁完成指定車款試乘登記，並至合作展示中心完成體驗，可獲得聯名餐點折抵券。"
-  }
-};
+const panel = document.querySelector("#infoPanel");
+const panelTitle = document.querySelector("#panelTitle");
+const panelKicker = document.querySelector("#panelKicker");
+const panelBody = document.querySelector("#panelBody");
+const panelMeta = document.querySelector("#panelMeta");
+const panelPrimary = document.querySelector("#panelPrimary");
+const panelSecondary = document.querySelector("#panelSecondary");
+const panelStatus = document.querySelector("#panelStatus");
+const ticketModal = document.querySelector("#ticketModal");
+const visitDate = document.querySelector("#visitDate");
+const adultCount = document.querySelector("#adultCount");
+const childCount = document.querySelector("#childCount");
+const ticketTotal = document.querySelector("#ticketTotal");
+const ticketStatus = document.querySelector("#ticketStatus");
 
-const stores = {
-  taipei: [
-    ["台北信義聯名店", "台北市信義區松壽路 18 號", "11:00 - 22:00"],
-    ["南港車站店", "台北市南港區忠孝東路七段 369 號", "11:00 - 21:30"],
-    ["板橋大遠百店", "新北市板橋區新站路 28 號", "11:00 - 22:00"]
-  ],
-  taichung: [
-    ["台中旗艦聯名店", "台中市西屯區台灣大道三段 251 號", "11:00 - 22:00"],
-    ["大魯閣新時代店", "台中市東區復興路四段 186 號", "11:00 - 21:30"],
-    ["豐原太平洋店", "台中市豐原區復興路 2 號", "11:00 - 21:30"]
-  ],
-  kaohsiung: [
-    ["高雄夢時代聯名店", "高雄市前鎮區中華五路 789 號", "11:00 - 22:00"],
-    ["左營新光店", "高雄市左營區高鐵路 123 號", "11:00 - 21:30"],
-    ["義享天地店", "高雄市鼓山區大順一路 115 號", "11:00 - 22:00"]
-  ]
-};
+let activePanel = "home";
+let adultTickets = 2;
+let childTickets = 1;
 
-const cardButtons = document.querySelectorAll("[data-model]");
-const detailImage = document.querySelector("#detail-image");
-const detailCategory = document.querySelector("#detail-category");
-const detailTitle = document.querySelector("#detail-title");
-const detailDescription = document.querySelector("#detail-description");
-const detailFlavor = document.querySelector("#detail-flavor");
-const detailDrive = document.querySelector("#detail-drive");
-const detailScene = document.querySelector("#detail-scene");
-const toast = document.querySelector("[data-toast]");
-let toastTimer;
+function openPanel(key, updateHash = true) {
+  const data = panels[key] || panels.home;
+  activePanel = panels[key] ? key : "home";
 
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  window.clearTimeout(toastTimer);
-  toastTimer = window.setTimeout(() => {
-    toast.classList.remove("is-visible");
-  }, 2600);
-}
-
-function selectModel(key, shouldScroll = false) {
-  const model = models[key];
-  if (!model) return;
-
-  cardButtons.forEach((button) => {
-    const isCurrent = button.dataset.model === key;
-    button.classList.toggle("is-active", isCurrent);
-    button.setAttribute("aria-selected", String(isCurrent));
-  });
-
-  detailCategory.textContent = model.category;
-  detailTitle.textContent = model.title;
-  detailDescription.textContent = model.description;
-  detailFlavor.textContent = model.flavor;
-  detailDrive.textContent = model.drive;
-  detailScene.textContent = model.scene;
-  detailImage.src = model.image;
-  detailImage.alt = model.alt;
-
-  if (shouldScroll) {
-    document.querySelector(".detail-panel").scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
-cardButtons.forEach((button) => {
-  button.addEventListener("click", () => selectModel(button.dataset.model, true));
-});
-
-document.querySelector("[data-show-all]").addEventListener("click", () => {
-  document.querySelector("#collection").scrollIntoView({ behavior: "smooth", block: "start" });
-  showToast("四款壽司車都在這裡，點卡片可以切換細節。");
-});
-
-document.querySelector("[data-add-drive]").addEventListener("click", () => {
-  showToast(`${detailTitle.textContent} 已加入試乘清單。`);
-});
-
-document.querySelectorAll("[data-product]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showToast(`${button.dataset.product} 已加入收藏。`);
-  });
-});
-
-document.querySelectorAll("[data-perk]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showToast(`${button.dataset.perk}資訊已更新在活動區塊。`);
-    document.querySelector("#rules").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
-
-document.querySelectorAll("[data-rule-tab]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const content = rules[button.dataset.ruleTab];
-    document.querySelectorAll("[data-rule-tab]").forEach((tab) => {
-      const isCurrent = tab === button;
-      tab.classList.toggle("is-active", isCurrent);
-      tab.setAttribute("aria-selected", String(isCurrent));
-    });
-    document.querySelector("#rule-panel").innerHTML = `<h3>${content.title}</h3><p>${content.body}</p>`;
-  });
-});
-
-function renderStores(city) {
-  const list = document.querySelector("#store-list");
-  list.innerHTML = stores[city]
-    .map(
-      ([name, address, hours]) => `
-        <article class="store-item">
-          <h3>${name}</h3>
-          <p>${address}</p>
-          <p>${hours}</p>
-          <button type="button" data-store="${name}">選擇門市</button>
-        </article>
-      `
-    )
+  panelKicker.textContent = data.kicker;
+  panelTitle.textContent = data.title;
+  panelBody.textContent = data.body;
+  panelMeta.innerHTML = data.meta
+    .map((item) => `<span class="meta-chip">${item}</span>`)
     .join("");
+  panelPrimary.textContent = data.primary;
+  panelSecondary.textContent = data.secondary;
+  panelStatus.textContent = "";
+  panel.dataset.primaryAction = data.primaryAction || "";
+  panel.dataset.secondaryPanel = data.secondaryPanel || "";
+  panel.classList.add("is-open");
+  panel.setAttribute("aria-hidden", "false");
 
-  list.querySelectorAll("[data-store]").forEach((button) => {
-    button.addEventListener("click", () => showToast(`${button.dataset.store} 已設為訂位門市。`));
-  });
-}
-
-document.querySelectorAll("[data-city]").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll("[data-city]").forEach((item) => item.classList.toggle("is-active", item === button));
-    renderStores(button.dataset.city);
-  });
-});
-
-function openModal(id) {
-  const dialog = document.querySelector(`#${id}-modal`);
-  if (!dialog) return;
-
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-  } else {
-    dialog.setAttribute("open", "");
+  if (updateHash) {
+    history.pushState({ panel: activePanel }, "", `#${activePanel}`);
   }
-
-  document.body.classList.add("modal-open");
 }
 
-function closeModal(dialog) {
-  if (!dialog) return;
-  if (typeof dialog.close === "function") {
-    dialog.close();
-  } else {
-    dialog.removeAttribute("open");
-  }
-  document.body.classList.remove("modal-open");
+function closePanel() {
+  panel.classList.remove("is-open");
+  panel.setAttribute("aria-hidden", "true");
 }
 
-document.querySelectorAll("[data-open-modal]").forEach((button) => {
-  button.addEventListener("click", () => openModal(button.dataset.openModal));
-});
+function openTickets() {
+  closePanel();
+  ticketStatus.textContent = "";
+  ticketModal.classList.add("is-open");
+  ticketModal.setAttribute("aria-hidden", "false");
+  updateTicketTotal();
+  window.setTimeout(() => visitDate.focus(), 40);
+}
 
-document.querySelectorAll(".modal").forEach((dialog) => {
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) closeModal(dialog);
-  });
-  dialog.addEventListener("close", () => document.body.classList.remove("modal-open"));
-});
+function closeTickets() {
+  ticketModal.classList.remove("is-open");
+  ticketModal.setAttribute("aria-hidden", "true");
+}
 
-document.querySelectorAll("[data-close-modal]").forEach((button) => {
-  button.addEventListener("click", () => closeModal(button.closest("dialog")));
-});
+function updateTicketTotal() {
+  adultCount.textContent = adultTickets;
+  childCount.textContent = childTickets;
+  const total = adultTickets * 3000 + childTickets * 1200;
+  ticketTotal.textContent = new Intl.NumberFormat("zh-TW", {
+    style: "currency",
+    currency: "TWD",
+    maximumFractionDigits: 0
+  }).format(total);
+}
 
-document.querySelector("[data-booking-form]").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const name = new FormData(form).get("name") || "貴賓";
-  closeModal(form.closest("dialog"));
-  form.reset();
-  showToast(`${name}，訂位資訊已送出。`);
-});
-
-const dateInput = document.querySelector('input[type="date"]');
-if (dateInput) {
+function setDefaultVisitDate() {
   const today = new Date();
-  const offset = today.getTimezoneOffset() * 60000;
-  dateInput.min = new Date(today.getTime() - offset).toISOString().slice(0, 10);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  const value = tomorrow.toISOString().slice(0, 10);
+  visitDate.min = today.toISOString().slice(0, 10);
+  visitDate.value = value;
 }
 
-const menuToggle = document.querySelector("[data-menu-toggle]");
-const navMenu = document.querySelector("[data-nav-menu]");
-menuToggle.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("is-open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-navMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("is-open");
-    menuToggle.setAttribute("aria-expanded", "false");
+document.querySelectorAll("[data-panel]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    openPanel(link.dataset.panel);
   });
 });
 
-const navLinks = [...document.querySelectorAll(".main-nav a")];
-const observedSections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
+document.querySelectorAll("[data-ticket]").forEach((button) => {
+  button.addEventListener("click", openTickets);
+});
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    const current = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+document.querySelector(".panel-close").addEventListener("click", closePanel);
+document.querySelector(".ticket-close").addEventListener("click", closeTickets);
 
-    if (!current) return;
+panelPrimary.addEventListener("click", () => {
+  if (panel.dataset.primaryAction === "tickets") {
+    openTickets();
+    return;
+  }
 
-    navLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${current.target.id}`);
-    });
-  },
-  { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.4, 0.7] }
-);
+  panelStatus.textContent = `${panels[activePanel].title}已加入今日行程。`;
+});
 
-observedSections.forEach((section) => observer.observe(section));
-renderStores("taipei");
+panelSecondary.addEventListener("click", () => {
+  if (panel.dataset.secondaryPanel) {
+    openPanel(panel.dataset.secondaryPanel);
+    return;
+  }
+
+  panelStatus.textContent = `已收藏「${panels[activePanel].title}」。`;
+});
+
+document.querySelectorAll(".stepper").forEach((stepper) => {
+  stepper.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (!button) return;
+
+    const change = Number(button.dataset.change);
+    if (stepper.dataset.stepper === "adult") {
+      adultTickets = Math.max(0, Math.min(9, adultTickets + change));
+    } else {
+      childTickets = Math.max(0, Math.min(9, childTickets + change));
+    }
+
+    updateTicketTotal();
+  });
+});
+
+document.querySelector(".ticket-card").addEventListener("submit", (event) => {
+  event.preventDefault();
+  ticketStatus.textContent = `已選好 ${adultTickets + childTickets} 張票，日期 ${visitDate.value}。`;
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closePanel();
+    closeTickets();
+  }
+});
+
+ticketModal.addEventListener("click", (event) => {
+  if (event.target === ticketModal) {
+    closeTickets();
+  }
+});
+
+window.addEventListener("popstate", () => {
+  const key = location.hash.replace("#", "");
+  if (key && panels[key]) {
+    openPanel(key, false);
+  } else {
+    closePanel();
+  }
+});
+
+setDefaultVisitDate();
+
+const initialPanel = location.hash.replace("#", "");
+if (initialPanel && panels[initialPanel]) {
+  openPanel(initialPanel, false);
+}
