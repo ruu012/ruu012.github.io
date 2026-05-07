@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>海底撈樂園 | Tokyo Disneyland</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="site-shell" aria-label="海底撈樂園互動網站">
+      <section class="poster-stage" aria-label="海底撈樂園首頁">
+        <img src="assets/haidilao-disneyland.png" alt="海底撈樂園首頁，包含旋轉鍋底、甩麵師父鬼屋、變臉師父鬼屋與巡遊活動">
+
+        <a class="hotspot logo-link" href="#home" data-panel="home" aria-label="回到海底撈樂園首頁"></a>
+        <a class="hotspot nav-attractions" href="#attractions" data-panel="attractions" aria-label="遊樂設施"></a>
+        <a class="hotspot nav-entertainment" href="#entertainment" data-panel="entertainment" aria-label="娛樂表演"></a>
+        <a class="hotspot nav-dining" href="#dining" data-panel="dining" aria-label="餐飲"></a>
+        <a class="hotspot nav-shopping" href="#shopping" data-panel="shopping" aria-label="商店"></a>
+        <a class="hotspot nav-tickets" href="#tickets" data-panel="tickets" aria-label="票券資訊"></a>
+        <a class="hotspot nav-hours" href="#hours" data-panel="hours" aria-label="營運時間表"></a>
+        <button class="hotspot buy-tickets" type="button" data-ticket aria-label="線上購票"></button>
+
+        <a class="hotspot card-hotspot rotating-cups" href="#rotating-cups" data-panel="rotating-cups" aria-label="旋轉鍋底"></a>
+        <a class="hotspot card-hotspot noodle-house" href="#noodle-house" data-panel="noodle-house" aria-label="甩麵師父鬼屋"></a>
+        <a class="hotspot card-hotspot face-house" href="#face-house" data-panel="face-house" aria-label="變臉師父鬼屋"></a>
+        <a class="hotspot card-hotspot parade" href="#parade" data-panel="parade" aria-label="海底撈花車遊行"></a>
+
+        <a class="hotspot footer-news" href="#news" data-panel="news" aria-label="最新消息"></a>
+        <a class="hotspot footer-attractions" href="#attractions" data-panel="attractions" aria-label="遊樂設施"></a>
+        <a class="hotspot footer-entertainment" href="#entertainment" data-panel="entertainment" aria-label="娛樂表演"></a>
+        <a class="hotspot footer-dining" href="#dining" data-panel="dining" aria-label="餐飲"></a>
+        <a class="hotspot footer-shopping" href="#shopping" data-panel="shopping" aria-label="商店"></a>
+        <a class="hotspot footer-services" href="#services" data-panel="services" aria-label="服務設施"></a>
+        <a class="hotspot footer-premier" href="#premier-access" data-panel="premier-access" aria-label="迪士尼尊享卡"></a>
+      </section>
+    </main>
+
+    <aside class="info-panel" id="infoPanel" aria-live="polite" aria-hidden="true">
+      <div class="panel-card" role="dialog" aria-modal="false" aria-labelledby="panelTitle">
+        <button class="icon-button panel-close" type="button" aria-label="關閉">×</button>
+        <p class="panel-kicker" id="panelKicker"></p>
+        <h1 id="panelTitle"></h1>
+        <p id="panelBody"></p>
+        <div class="panel-meta" id="panelMeta"></div>
+        <div class="panel-actions">
+          <button class="primary-action" type="button" id="panelPrimary"></button>
+          <button class="secondary-action" type="button" id="panelSecondary"></button>
+        </div>
+        <p class="panel-status" id="panelStatus" aria-live="polite"></p>
+      </div>
+    </aside>
+
+    <div class="ticket-modal" id="ticketModal" aria-hidden="true">
+      <form class="ticket-card" aria-labelledby="ticketTitle">
+        <button class="icon-button ticket-close" type="button" aria-label="關閉">×</button>
+        <p class="panel-kicker">Buy Tickets</p>
+        <h2 id="ticketTitle">線上購票</h2>
+        <label class="field">
+          <span>入園日期</span>
+          <input type="date" id="visitDate">
+        </label>
+        <div class="ticket-row">
+          <div>
+            <strong>一日護照</strong>
+            <span>成人 18 歲以上</span>
+          </div>
+          <div class="stepper" data-stepper="adult">
+            <button type="button" data-change="-1" aria-label="減少成人票">−</button>
+            <output id="adultCount">2</output>
+            <button type="button" data-change="1" aria-label="增加成人票">+</button>
+          </div>
+        </div>
+        <div class="ticket-row">
+          <div>
+            <strong>兒童護照</strong>
+            <span>4 至 17 歲</span>
+          </div>
+          <div class="stepper" data-stepper="child">
+            <button type="button" data-change="-1" aria-label="減少兒童票">−</button>
+            <output id="childCount">1</output>
+            <button type="button" data-change="1" aria-label="增加兒童票">+</button>
+          </div>
+        </div>
+        <div class="ticket-total">
+          <span>小計</span>
+          <strong id="ticketTotal">NT$7,200</strong>
+        </div>
+        <button class="primary-action full-width" type="submit">完成選購</button>
+        <p class="panel-status" id="ticketStatus" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
