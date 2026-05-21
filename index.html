@@ -93,6 +93,13 @@
             <strong>今日表演與道路提醒</strong>
             <em>出發前先確認</em>
           </button>
+          <button type="button" class="feature-card video-feature" data-video aria-label="播放顧客見證感言">
+            <span class="video-thumb" aria-hidden="true">
+              <img src="assets/video-thumbnail.jpg" alt="">
+              <span class="play-badge">▶</span>
+            </span>
+            <strong>顧客見證感言</strong>
+          </button>
         </div>
       </section>
 
@@ -208,6 +215,19 @@
         <button class="primary-action full-width" type="submit">完成選購</button>
         <p class="panel-status" id="ticketStatus" aria-live="polite"></p>
       </form>
+    </div>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+        <button class="icon-button video-close" type="button" aria-label="關閉">×</button>
+        <p class="panel-kicker">Movie</p>
+        <h2 id="videoTitle">顧客見證感言</h2>
+        <video id="parkVideo" controls playsinline preload="metadata" poster="assets/video-thumbnail.jpg">
+          <source src="assets/icon-video.mov">
+          您的瀏覽器無法播放這支影片。
+        </video>
+        <p class="panel-status" id="videoStatus" aria-live="polite"></p>
+      </div>
     </div>
 
     <script src="script.js"></script>

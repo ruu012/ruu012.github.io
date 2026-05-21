@@ -218,6 +218,9 @@ const adultCount = document.querySelector("#adultCount");
 const childCount = document.querySelector("#childCount");
 const ticketTotal = document.querySelector("#ticketTotal");
 const ticketStatus = document.querySelector("#ticketStatus");
+const videoModal = document.querySelector("#videoModal");
+const parkVideo = document.querySelector("#parkVideo");
+const videoStatus = document.querySelector("#videoStatus");
 
 let activePanel = "home";
 let adultTickets = 2;
@@ -265,6 +268,29 @@ function closeTickets() {
   ticketModal.setAttribute("aria-hidden", "true");
 }
 
+function openVideo() {
+  closePanel();
+  closeTickets();
+  videoStatus.textContent = "";
+  parkVideo.muted = false;
+  parkVideo.volume = 1;
+  videoModal.classList.add("is-open");
+  videoModal.setAttribute("aria-hidden", "false");
+
+  const playPromise = parkVideo.play();
+  if (playPromise) {
+    playPromise.catch(() => {
+      videoStatus.textContent = "請按影片控制列的播放鍵，即可有聲觀看。";
+    });
+  }
+}
+
+function closeVideo() {
+  parkVideo.pause();
+  videoModal.classList.remove("is-open");
+  videoModal.setAttribute("aria-hidden", "true");
+}
+
 function updateTicketTotal() {
   adultCount.textContent = adultTickets;
   childCount.textContent = childTickets;
@@ -296,8 +322,13 @@ document.querySelectorAll("[data-ticket]").forEach((button) => {
   button.addEventListener("click", openTickets);
 });
 
+document.querySelectorAll("[data-video]").forEach((button) => {
+  button.addEventListener("click", openVideo);
+});
+
 document.querySelector(".panel-close").addEventListener("click", closePanel);
 document.querySelector(".ticket-close").addEventListener("click", closeTickets);
+document.querySelector(".video-close").addEventListener("click", closeVideo);
 
 panelPrimary.addEventListener("click", () => {
   if (panel.dataset.primaryAction === "tickets") {
@@ -342,12 +373,19 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closePanel();
     closeTickets();
+    closeVideo();
   }
 });
 
 ticketModal.addEventListener("click", (event) => {
   if (event.target === ticketModal) {
     closeTickets();
+  }
+});
+
+videoModal.addEventListener("click", (event) => {
+  if (event.target === videoModal) {
+    closeVideo();
   }
 });
 
